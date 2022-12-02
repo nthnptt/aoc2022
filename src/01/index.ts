@@ -1,12 +1,6 @@
-import * as fs from 'fs';
+import { readInput } from '../utils/file';
 
 const DATA_FILE = 'datas/01/data.txt';
-
-async function readInput(filename: string): Promise<string[]> {
-    const data = await fs.promises.readFile(filename, 'utf8')
-    const text = Buffer.from(data);
-    return text.toString().split(/\r?\n/);
-}
 
 function getElvesCalories(calories: string[]): number[] {
     return calories.reduce<number []>((acc, calorie) => {
