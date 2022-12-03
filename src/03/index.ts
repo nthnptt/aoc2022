@@ -44,13 +44,13 @@ export function findThreeElvesRuckstacksScore(ruckstacks: string[]): number {
 
 }
 
-export async function part1(): Promise<number> {
-    const ruckstacks = await readInput(DATAFILE);
+export function part1(): number {
+    const ruckstacks = readInput(DATAFILE);
     return ruckstacks.reduce<number>((sum, ruckstack) => sum + findPrioritiesRuckstacksScore(ruckstack), 0);
 }
 
-export async function part2(): Promise<number> {
-    const ruckstacksGroupedByThree = (await readInput(DATAFILE)).reduce<string[][]>((acc, ruckstack) => {
+export function part2(): number {
+    const ruckstacksGroupedByThree = readInput(DATAFILE).reduce<string[][]>((acc, ruckstack) => {
         if(acc[acc.length - 1].length === 3) {
             acc.push([ruckstack]);
             return acc;

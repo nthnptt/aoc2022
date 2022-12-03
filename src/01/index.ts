@@ -14,17 +14,17 @@ function getElvesCalories(calories: string[]): number[] {
     }, [])
 }
 
-export async function part1(): Promise<void> {
-    const calories = await readInput(DATA_FILE);
+export  function part1():  number {
+    const calories =  readInput(DATA_FILE);
     const elves = getElvesCalories(calories);
-    const maxCaloriesValue = elves.sort((n1, n2) => n2 - n1).slice(0, 1);
-    console.log('Part 1 : ' + maxCaloriesValue);
+    const maxCaloriesValue = elves.sort((n1, n2) => n2 - n1);
+    return maxCaloriesValue[0];
 }
 
-export async function part2(): Promise<void> {
-    const calories = await readInput(DATA_FILE);
+export  function part2():  number {
+    const calories =  readInput(DATA_FILE);
     const elves = getElvesCalories(calories);
     const topThird = elves.sort((n1, n2) => n2 - n1).slice(0, 3);
     const topThirdCaloriesSum = topThird.reduce((sum, calorie) => sum + calorie, 0);
-    console.log('Part 2 : ' + topThird + ' - ' + topThirdCaloriesSum);
+    return topThirdCaloriesSum;
 }

@@ -96,14 +96,12 @@ export function computeGameScoreWithHelp(halfs: string[]): number {
         .reduce<number>((score, halfScore) => score + halfScore, 0);
 }
 
-export async function part1(): Promise<void> {
-    const inputs = await readInput(DATAFILE_PATH);
-    const score = computeGameScore(inputs);
-    console.log(`Part 1 : ${score}`);
+export function part1(): number {
+    const inputs = readInput(DATAFILE_PATH);
+    return computeGameScore(inputs);
 }
 
-export async function part2(): Promise<void> {
-    const inputs = await readInput(DATAFILE_PATH);
-    const score = computeGameScoreWithHelp(inputs);
-    console.log(`Part 2 : ${score}`);
+export function part2(): number {
+    const inputs = readInput(DATAFILE_PATH);
+    return computeGameScoreWithHelp(inputs);
 }
